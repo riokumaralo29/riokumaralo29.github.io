@@ -1,0 +1,65 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="point.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <nav>
+            <label for="" class="logo">BUang.Jo</label>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li ><a class="active" href="#">History</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                  </ul>
+                  <label id="icon">
+                    <i class="fas fa-bars"></i>
+                </label>
+        </nav>
+    
+        <div class=container>
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    
+        <table class="table table-hover">
+            <thead>
+                <th>
+                    Tanggal
+                </th>
+                <th>
+                    Jenis Sampah
+                </th>
+                <th>
+                    Pembeli
+                </th>
+            </thead>
+            <tbody id="myTable">
+                <?php
+                $tanggal=0;
+                $jnssmph=0;
+                $buyer=0;
+                for($i=0;$i<10;$i++){
+                    $jnsjmph=$jnssmph+1;
+                $buyer=$buyer+2;
+                    echo "<tr> <td>'$tanggal'</td><td>'$jnssmph'</td><td>'$buyer'</td></tr>";}
+                
+                ?>
+            </tbody>
+        </table>
+
+            </div>
+            <script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+    </body>
+</html>
